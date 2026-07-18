@@ -1,6 +1,7 @@
 from sqlalchemy import Column,String,Integer,ForeignKey,Date,Text,Enum as SQLenum
 from enum import Enum
 from  backend.database import Base
+from sqlalchemy.orm import relationship
 
 class StatusEnum(str,Enum):
     in_progress="in_progress"
@@ -15,6 +16,8 @@ class Topic(Base):
     title=Column(String,nullable=False)
     status=Column(SQLenum(StatusEnum))
     notes=Column(Text)
-    roadmap_id=Column(Integer,ForeignKey('roadmap.id'))
-    deadline=Column(Date)
+    roadmap_id=Column(Integer,ForeignKey('roadmaps.id'))
+    target_date=Column(Date)
+    roadmap=relationship("Roadmap",back_populates="topics")
+
     
