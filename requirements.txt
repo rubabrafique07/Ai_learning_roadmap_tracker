@@ -7,3 +7,4 @@ passlib[bcrypt]
 python-dotenv
 pydantic-settings
 streamlit
+email-validator
