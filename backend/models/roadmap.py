@@ -3,9 +3,9 @@ from  backend.database import Base
 
 
 class Roadmap(Base):
-    __tablename__='roadmap'
+    __tablename__='roadmaps'
     id=Column(Integer,primary_key=True,index=True)
     title=Column(String,nullable=False)
-    deadline=Column(Date,unique=True)
+    deadline=Column(Date)
     user_id=Column(Integer,ForeignKey('users.id'))
     
