@@ -4,7 +4,7 @@ from typing import Optional
 from backend.models.topic import StatusEnum
 class TopicCreate(BaseModel):
     title:str=Field(...,min_length=5,max_length=30)
-    target_date:date=Field()
+    target_date:date=Field(...)
     notes:Optional[str]=None
     status:StatusEnum=Field(default=StatusEnum.not_started)
 
