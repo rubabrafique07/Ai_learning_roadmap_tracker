@@ -8,3 +8,4 @@ class User(Base):
     email=Column(String,unique=True)
     password_hash=Column(String)
     roadmaps=relationship("Roadmap",back_populates='owner')
+    categories=relationship('Category',back_populates='user')

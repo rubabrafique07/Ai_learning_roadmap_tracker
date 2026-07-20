@@ -9,6 +9,8 @@ class Roadmap(Base):
     title=Column(String,nullable=False)
     deadline=Column(Date)
     user_id=Column(Integer,ForeignKey('users.id'))
+    category_id=Column(Integer,ForeignKey('category.id'))
     owner=relationship("User",back_populates="roadmaps")
     topics=relationship("Topic",back_populates="roadmap")
+    category=relationship("Category",back_populates='roadmaps')
     
