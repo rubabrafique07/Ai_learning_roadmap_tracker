@@ -16,6 +16,11 @@ def create_topic(roadmap_id: int, topic: TopicCreate, user_id: int, db: Session)
     db.refresh(new_topic)
     return new_topic
 
+def get_all_topics(roadmap_id: int, user_id: int, db: Session):
+    roadmap = db.query(Roadmap).filter(Roadmap.id==roadmap_id, Roadmap.user_id==user_id).first()
+    if not roadmap:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Roadmap not found")
+    return db.query(Topic).filter(Topic.roadmap_id==roadmap_id).all()
 
 def get_topic_by_id(topic_id: int, user_id: int, db: Session):
     topic = db.query(Topic).join(Roadmap).filter(Topic.id==topic_id, Roadmap.user_id==user_id).first()
