@@ -70,7 +70,6 @@ ai_learning_roadmap_tracker/
 │       └── api.py                 # Backend API helper functions
 │
 ├── requirements.txt
-├── .env.example
 └── .gitignore
 ```
 
