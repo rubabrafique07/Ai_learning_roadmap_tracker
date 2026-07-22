@@ -74,7 +74,7 @@ STATUS_EMOJI = {
     "completed": "🟢 Completed",
 }
 
-# ---------- Add Topic ----------
+
 st.markdown('<div class="create-card">', unsafe_allow_html=True)
 st.subheader("✨ Add New Topic")
 title = st.text_input("Topic Title", placeholder="e.g. 🔐 Authentication & JWT")
@@ -96,7 +96,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 st.divider()
 
-# ---------- List Topics ----------
+
 st.subheader(f"📋 Topics in '{selected_title}'")
 
 topics_response = get_topics(token, selected_roadmap_id)
